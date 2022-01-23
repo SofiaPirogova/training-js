@@ -112,6 +112,7 @@ const words = ['I', 'Love', 'You', 'too'];
 // string = string.slice(0, string.length - 1);
 const string = words.join(',');
 console.log(string);
+
 // скрипт меняющий регистр букв на противоположный
 const stringWrong = 'JavaScript';
 const letters = stringWrong.split('');
@@ -130,6 +131,7 @@ for (const letter of letters) {
 }
 
 console.log(stringInverse);
+
 // сделать слак из строки для строки поиска
 const title = 'Top 10 benefits of React framework';
 const normalizedTitle = title.toLowerCase();

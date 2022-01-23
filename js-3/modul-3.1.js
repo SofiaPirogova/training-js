@@ -196,22 +196,3 @@ const x = {
   f: 3,
 };
 console.log(Object.keys(x).length);
-// корзина товаров
-const cart = {
-  items: [],
-  getItems() {},
-  add(product) {},
-  remove(product) {},
-  clear() {},
-  countTotalPrice() {},
-  increaseQuantity(productName) {},
-  decreaseQuantity(productName) {},
-};
-console.table(cart.getItems());
-cart.add({ name: 'apple', price: 50 });
-cart.add({ name: 'lemon', price: 70 });
-cart.add({ name: 'tomato', price: 80 });
-cart.add({ name: 'orange', price: 20 });
-
-console.table(cart.getItems());
-cart.remove('tomato');

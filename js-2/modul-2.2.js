@@ -87,6 +87,7 @@ const calculateAverage = function () {
   return result;
 };
 console.log(calculateAverage(1, 2, 3, 4, 5, 6));
+
 // вернуть копию по алфавиту
 const alfa = ['Html', 'JavaScript', 'CSS'];
 // const alfa = [5, 3, 6, 7];
