@@ -84,4 +84,27 @@ console.log(allTopics);
 console.log(uniqueTopics);
 console.log('uniqueTopicsFilter', uniqueTopicsFilter);
 
+//берет четные цифры, суммирует их и умножает на последнюю цифру в массиве
+const evenLast = numbers => {
+  if (!numbers.length) return 0;
+  return (
+    numbers.reduce((acc, cur, ind) => (ind % 2 === 0 ? acc + cur : acc)) *
+    numbers[numbers.length - 1]
+  );
+};
+console.log('evenlast', evenLast([2, 3, 4, 5]));
+
+//печатаем слова по цифрам
+const switcher = array => {
+  const alfa = 'A B C D E F G H I J K L M N O P Q R S T U V W X Y Z';
+  const alfaArr = alfa.split(' ').reverse();
+  // console.log(alfaArr);
+  alfaArr.push('!', '?', ' ');
+
+  const str = array.reduce((acc, cur) => (acc += alfaArr[Number(cur) - 1]), '');
+  return str.toLowerCase();
+};
+
+console.log(switcher(['24', '12', '23', '22', '4', '26', '9', '8'])); //codewars
+
 //
