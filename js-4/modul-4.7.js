@@ -107,4 +107,66 @@ const switcher = array => {
 
 console.log(switcher(['24', '12', '23', '22', '4', '26', '9', '8'])); //codewars
 
+///Чтобы убрать все цифры в первом массиве, которые есть во втором массиве
+const arrayDiff = (a, b) => {
+  return a.filter(el => !b.includes(el));
+};
+console.log(arrayDiff([3, 4], [3]));
+
+//6 kyu elimination tournament
+const tourney = array => {
+  const res = [array];
+
+  const makeArr = curArr => {
+    let tmp = 0;
+    const arr = curArr.reduce((acc, cur, ind) => {
+      if (ind % 2 === 0) {
+        tmp = cur;
+      } else {
+        acc.push(tmp > cur ? tmp : cur);
+      }
+      return acc;
+    }, []);
+
+    if (curArr.length % 2 !== 0) {
+      arr.unshift(tmp);
+    }
+
+    res.push(arr);
+    // рекурсия, чтоюы функция зациклилась, вызывает себя же по условию до определенного момента
+    if (arr.length > 1) {
+      makeArr(arr);
+    } else {
+      return;
+    }
+  };
+  makeArr(array);
+
+  return res;
+};
+
+console.log(tourney([9, 5, 4, 7, 6, 3, 8, 2]));
+
+//отфильтровали нечетные
+const getEven = numbersArray => {
+  return numbersArray.filter(num => num % 2 === 0);
+};
+console.log(getEven([2, 3, 4, 56, 6]));
+
+//заполняем ноликами столько х , сколько во второй строке символов
+// если вторая строка больше первой, то оставляем длину первой и заполняем 0
+const flyBy = (lamps, drone) => {
+  return ''
+    .padStart(lamps.length < drone.length ? lamps.length : drone.length, 'o')
+    .padEnd(lamps.length, 'x');
+};
+console.log(flyBy('xxxxxxxxx', '====T'));
+
+// сумма цифр четная или нет
+function oddOrEven(array) {
+  const sum = array.reduce((acc, cur) => acc + cur, 0);
+  return sum % 2 === 0 ? 'even' : 'odd';
+}
+console.log(oddOrEven([1, 2, 3, 4]));
+
 //

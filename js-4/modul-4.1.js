@@ -131,6 +131,7 @@ console.log(makefnB);
 // makeDish('Poly', 'котлеты');
 // makeDish('Poly', 'супик');
 // makeDish('Poly', 'кофе');
+
 // 2 замыкание
 const makeSheff = function (name) {
   const makeDish = function (dish) {
