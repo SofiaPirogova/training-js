@@ -1,0 +1,7 @@
+.site-nav__link--current {
+  color: orange;
+}
+.color-picker__option {
+  width: 60px;
+  height: 60px;
+}
