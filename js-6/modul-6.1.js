@@ -1,3 +1,5 @@
+import productJs from './product-6.1.js';
+console.log(productJs);
 // 1
 const navEl = document.querySelector('.navigation');
 console.log(navEl);
@@ -63,7 +65,7 @@ console.log(firstNavItemEl);
 console.log(ulNavEl.children);
 console.log(ulNavEl.children[1]);
 
-// создавать новое
+//TODO: создавать новое
 const titleEl = document.createElement('h1');
 titleEl.classList.add('page-title');
 titleEl.textContent = 'Сделай мне Кусь';
@@ -76,7 +78,7 @@ cucumberEl.alt = 'cucumber';
 cucumberEl.width = 340;
 // document.body.appendChild(cucumberEl);
 
-// вставка нескольких элементов
+//TODO: вставка нескольких элементов
 const heroEl = document.querySelector('.hero');
 // heroEl.appendChild(titleEl);
 // heroEl.appendChild(cucumberEl);
@@ -96,7 +98,7 @@ ulNavEl.insertBefore(navItemEl, ulNavEl.firstElementChild);
 // ulNavEl.insertBefore(navItemEl, ulNavEl.children[1]);
 // ulNavEl.insertBefore(navItemEl, ulNavEl.lastElementChild);
 
-// создание коллекций элементов
+//TODO: создание коллекций элементов
 const colorPickerContainerEl = document.querySelector('.js-color-picker');
 
 const colorPickerOptions = [
@@ -143,7 +145,7 @@ const elements = colorPickerOptions.map(option => {
 });
 colorPickerContainerEl.append(...elements);
 
-// переделываем на функцию, чтобы можно было повторить с другими разметками
+//TODO: переделываем на функцию, чтобы можно было повторить с другими разметками
 const makeColorPickerOptions = options => {
   return options.map(option => {
     const newButtonEl = document.createElement('button');
@@ -186,3 +188,50 @@ productCardEl.append(nameCardEl, descrCardEl, priceCardEl);
 imageEl.after(productCardEl);
 
 console.log(productCardEl);
+
+//TODO: работа с файлом из импорта
+// создание одного элемента
+// и в разметку пихание коллекции
+const makeProductCard = ({ name, description, price }) => {
+  const productCardEl = document.createElement('article');
+  productCardEl.classList.add('product');
+  const nameCardEl = document.createElement('h2');
+  nameCardEl.classList.add('product__name');
+  nameCardEl.textContent = name;
+
+  const descrCardEl = document.createElement('p');
+  descrCardEl.classList.add('product__descr');
+  descrCardEl.textContent = description;
+
+  const priceCardEl = document.createElement('p');
+  priceCardEl.classList.add('product__price');
+  priceCardEl.textContent = `Цена: ${price}`;
+
+  productCardEl.append(nameCardEl, descrCardEl, priceCardEl);
+
+  return productCardEl;
+};
+console.log(makeProductCard(productJs[1]));
+
+const elementsCard = productJs.map(makeProductCard);
+console.log(elementsCard);
+
+const productsContainerEl = document.querySelector('.js-products');
+productsContainerEl.append(...elementsCard);
+
+//TODO: парс строк
+const title2El = document.querySelector('.title2');
+console.log(title2El.textContent);
+console.log(title2El.innerHTML);
+// перезаписывает все внутренности элемента
+title2El.innerHTML = '<a href= "../modul-5.html"> site site site</a>';
+
+//TODO: добавление через insertAdjacentHTML операция не деструктивная
+title2El.insertAdjacentHTML(
+  // 'beforebegin',
+  // 'afterend',
+  // 'afterbegin',
+  'beforeend',
+  '<a href= "../modul-5.html"> white pink blue</a>',
+);
+ 
