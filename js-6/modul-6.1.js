@@ -234,4 +234,3 @@ title2El.insertAdjacentHTML(
   'beforeend',
   '<a href= "../modul-5.html"> white pink blue</a>',
 );
- 
